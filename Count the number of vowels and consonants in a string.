@@ -1,0 +1,12 @@
+input_string=input().lower()
+input_stringlist= list(input_string)
+no_vowels=0
+no_consonants=0
+for i in input_stringlist:
+    if i=='a'or i=='e' or i=='i' or i=='o' or i=='u':
+        no_vowels=no_vowels+1
+    else:
+        no_consonants=no_consonants+1
+print("number of vowels is: ",no_vowels)    
+print("number of consonants is:",no_consonants)
+    
