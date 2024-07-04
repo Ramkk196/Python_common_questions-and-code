@@ -1,47 +1,56 @@
-#basic operation of insertion and acessing linked list
-lass node:
-    def __init__( self,value):
+class Node:
+    def __init__(self,value):
         self.value=value
         self.next=None
-class linked_list:
+class Linked_list:
     def __init__(self):
-        self.front=None
-    def insert (self,value):
-        if self.front is None:
-             self.front=node(value)
+        self.head=None
+    def insert(self,value):
+        if self.head is None:
+            self.head=Node(value)
         else:
-               item=self.front
-               while item.next is not None:
-                   item = item.next
-               item.next = node(value)
-    def acess_list(self,value):
+            current_node=self.head
+            while current_node.next is  not None :
+                current_node=current_node.next
+            current_node.next=Node(value)
+    def search_list(self,value):
+        position=1
+        current_node=self.head
 
-        Front=self.front
-        if Front.value == value:
-            print("item foind at starting of linked list at position 1 the front end")
-        else:
-
-         new_item=self.front
-         count=1
-         while new_item.next is not None:
-
-            new_item= new_item.next
-            count=count+1
-            if new_item.value == value:
-                print("item found at postion")
-                print(count)
+        while current_node is not None:
+            if current_node.value==value:
+                print("found at position")
+                print(position)
                 return
-            print("no item as such")
-         if new_item.value==value:
-              print("item found at ")
-              print(count)
-              print("position")
 
-new_linked_list=linked_list()
-new_linked_list.insert(5)
-new_linked_list.insert(6)
-new_linked_list.insert(7)
-new_linked_list.acess_list(6)
+            else:
+                current_node=current_node.next
+                position=position+1
+
+        print("no element as such is present ")
+    def print_list(self):
+        current_node=self.head
+        while current_node is not None:
+            print(current_node.value,"---->",end="")
+            current_node=current_node.next
+
+if __name__ =="__main__"   :
+    sample_list = Linked_list()
+    while True:
+        case = int(input("for insert type 1 in the console for search type 2 and 3 for print"))
+        if (case == 1):
+
+            n = int(input("enter the number of elements"))
+
+            for i in range(0, n):
+                sample_list.insert(input())
+            sample_list.print_list()
+        if (case == 2):
+            element = input("enter the element to be searched")
+            sample_list.search_list(element)
+        if (case == 3):
+            sample_list.print_list()
+
 
 
 
